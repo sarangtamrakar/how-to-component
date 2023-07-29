@@ -24,3 +24,18 @@
 }
 
 
+.sidenavbar{
+  animation: sidenavbar 0.5s linear 0s 1;
+}
+
+
+@keyframes sidenavbar {
+  from{
+    transform: translateY(-100%);
+    opacity: 0.2;
+  }
+  to{
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}

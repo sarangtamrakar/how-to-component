@@ -7,12 +7,12 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
     <main
-      className={`flex min-h-screen bg-gray-200 flex-col items-center justify-between p-24 ${inter.className}`}
+      className={`flex h-40 bg-gray-200  items-center flex-col justify-between }`}
     >
       <Link href="/slide-show/">SlideShow</Link>
       <Link href="/overlay-loginform/">Overlay Login Form</Link>
       <Link href="/accordian/">Accordian</Link>
-
+      <Link href="/side-navbar/">sidenavbar</Link>
 
 
       

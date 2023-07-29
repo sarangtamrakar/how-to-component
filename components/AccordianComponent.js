@@ -34,7 +34,6 @@ const AccordianComponent = () => {
     }
 
     function handleState(type) {
-
         switch (type) {
             case 0:
                 if (toggle[type]) {
@@ -167,7 +166,7 @@ const AccordianComponent = () => {
                             {content?.heading}
                         </h4>
                         {toggle[idx] && (
-                            <p className="max-w-xs whitespace-normal rounded p-1 bg-red-400  image-animation">
+                            <p className="max-w-xs whitespace-normal rounded p-1 bg-red-400  sidenavbar">
                                 {content?.desc}
                             </p>
                         )
