@@ -13,6 +13,7 @@ export default function Home() {
       <Link href="/overlay-loginform/">Overlay Login Form</Link>
       <Link href="/accordian/">Accordian</Link>
       <Link href="/side-navbar/">sidenavbar</Link>
+      <Link href="/carousel/">Carousel</Link>
 
 
       
