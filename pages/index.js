@@ -1,8 +1,6 @@
 import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import Link from 'next/link'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
@@ -14,9 +12,10 @@ export default function Home() {
       <Link href="/accordian/">Accordian</Link>
       <Link href="/side-navbar/">sidenavbar</Link>
       <Link href="/carousel/">Carousel</Link>
-
-
-      
+      <Link href="/infine-scroll/">infine-scroll</Link>
+      <Link href="/health-check/">HealthCheck</Link>
+      <Link href="/swipper-carousel/">Swipper Page</Link>
+      <Link href="/use-reducer-concept/">useReducer Page</Link>
     </main>
   )
 }
