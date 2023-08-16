@@ -3,8 +3,7 @@ import HealthCheckBox from '@/components/HealthCheckBox'
 
 
 const HealthCheck = () => {
-
-
+    
     const [ImageData, setImageData] = useState([
         {
             original: {
@@ -241,8 +240,8 @@ const HealthCheck = () => {
 
             ]
         },
-       
-       
+
+
     ]);
 
 

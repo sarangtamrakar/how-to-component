@@ -16,6 +16,8 @@ export default function Home() {
       <Link href="/health-check/">HealthCheck</Link>
       <Link href="/swipper-carousel/">Swipper Page</Link>
       <Link href="/use-reducer-concept/">useReducer Page</Link>
+      <Link href="/progress-bar/">Progressbar Page</Link>
+      <Link href="/auto-suggestion/">Auto Suggestion Page</Link>
     </main>
   )
 }

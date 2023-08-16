@@ -5,17 +5,72 @@ const HealthCheckBox = ({ ImageData, setImageData }) => {
 
 
     const handleOriginal = (idx) => { 
-        console.log("original", idx);
-        let seletedBox = ImageData[idx]
 
-        
-        
-        // setImageData((ImageData)=>[...ImageData])
+        setImageData(ImageData.map((el, index) => {
+            if (index === idx) {
+
+                return {
+                    ...el,
+                    original: {
+                        ...el?.original,
+                        isChecked: !el.original.isChecked
+                    },
+                    duplicate: el.duplicate.map((el2, index2) => {
+                        return {
+                            ...el2,
+                            isChecked: !el.original.isChecked
+                        }
+                    })
+                }
+                
+            } else {
+                return el;
+            }
+        }));
     }
     
     
     const handleDuplicate = (idx,dup_idx) => {
-        console.log("duplicate" , idx,dup_idx);
+        console.log("duplicate", idx, dup_idx);
+        
+        let dummy = ImageData.map((el, index) => { 
+            if (index === idx) {
+                return {
+                    ...el,
+                    duplicate: el.duplicate.map((el2, index2) => { 
+                        if (index2 === dup_idx) {
+                            return {
+                                ...el2,
+                                isChecked : !el2.isChecked
+                            }
+                        } else { 
+                            return el2;
+                        }
+                    })
+                }
+            } else { 
+                return el;
+            }
+        })
+
+        setImageData(dummy.map((el, index) => { 
+            if (index === idx) {
+                let isAllDupChecked = el.duplicate.every((dup) => dup.isChecked);
+                console.log("isAllDupChecked", isAllDupChecked);
+                
+                return {
+                    ...el,
+                    original: {
+                        ...el.original,
+                        isChecked : isAllDupChecked,
+                    }
+                }
+                
+            } else { 
+                return el;
+            }
+        }))
+        
     }
 
     
@@ -32,9 +87,9 @@ const HealthCheckBox = ({ ImageData, setImageData }) => {
                     return (
                         <div className='flex flex-row items-center justify-center gap-4' key={idx}>
                             <div className='flex justify-center items-start'>
-                                <input onClick={() => { handleOriginal(idx)}} type="checkbox" name="" id="" />
+                                <input checked={original?.isChecked } onClick={() => { handleOriginal(idx)}} type="checkbox" name="" id="" />
                                 <Image
-                                    alt={original?.img_url}
+                                    alt={"original"}
                                     src={original?.img_url}
                                     width={200}
                                     height={200}
@@ -46,10 +101,10 @@ const HealthCheckBox = ({ ImageData, setImageData }) => {
                                     duplicate.map((dup_img, dup_idx) => {
                                         return (
                                             <>
-                                                <input onClick={() => { handleDuplicate(idx,dup_idx)}} type="checkbox" name="" id="" />
+                                                <input checked={ dup_img?.isChecked} onClick={() => { handleDuplicate(idx,dup_idx)}} type="checkbox" name="" id="" />
                                                 <Image
                                                     key={dup_idx}
-                                                    alt={dup_img?.img_url}
+                                                    alt={"dup_img"}
                                                     src={dup_img?.img_url}
                                                     width={200}
                                                     height={200}

@@ -22,7 +22,7 @@ const Scrollhooks = ({ query, pageNumber, sethasMore }) => {
         }
         ).then(response => {
             console.log("called");
-            setData((prevData) => [...prevData , ...response.data.docs.map((el) => el.title)]);
+            setData((prevData) => [...response.data.docs.map((el) => el.title)]);
             sethasMore(response?.data?.docs?.length > 0);
         }).catch((error) => {
             if (axios.isCancel(error)) return;
